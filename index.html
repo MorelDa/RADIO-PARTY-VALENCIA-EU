@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>RADIO PARTY VALENCIA - En Vivo</title>
+
+<!-- META ETIQUETAS OPEN GRAPH (Para compartir en WhatsApp, Facebook, Telegram) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="RADIO PARTY VALENCIA - En Vivo">
+<meta property="og:description" content="Escucha Radio Party Valencia en vivo con el mejor sonido y la mejor programación.">
+<meta property="og:image" content="https://i.ibb.co/LhDPnt7b/N.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
+
+<!-- META ETIQUETAS TWITTER CARDS -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RADIO PARTY VALENCIA - En Vivo">
+<meta name="twitter:description" content="Escucha Radio Party Valencia en vivo con el mejor sonido y la mejor programación.">
+<meta name="twitter:image" content="https://i.ibb.co/LhDPnt7b/N.png">
+
+<!-- FAVICONS (Para navegadores móviles y de escritorio) -->
+<link rel="icon" href="https://i.ibb.co/LhDPnt7b/N.png" type="image/png">
+<link rel="apple-touch-icon" href="https://i.ibb.co/LhDPnt7b/N.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #ffd000;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+/* CONTENEDOR MÓVIL */
+.mobile-wrapper {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top) + 12px) 16px calc(env(safe-area-inset-bottom) + 115px) 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  position: relative;
+  background: #ffd000;
+  perspective: 1200px;
+}
+
+/* BARRA SUPERIOR */
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.top-bar i {
+  font-size: 22px;
+  color: #000000;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.top-bar h1 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ETIQUETA EN VIVO REDONDEADA */
+.live-tag {
+  background-color: #e50914;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* STAGE DEL LOGO CON ONDAS EXPANSIVAS */
+.logo-stage {
+  position: relative;
+  width: min(65vw, 230px);
+  height: min(65vw, 230px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  perspective: 1000px;
+}
+
+/* ONDAS BLANCAS FINAS EXPANSIVAS */
+.pulse-wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 35px;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(1);
+  transition: transform 0.05s ease-out, opacity 0.05s ease-out;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* ESTRUCTURA 3D REAL DEL LOGO CON CAPA GRUESA (GROSOR 3D) */
+.logo-3d-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate3DReal 9s ease-in-out infinite;
+}
+
+.logo-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 5px solid #ffffff;
+  background: #000000;
+  backface-visibility: hidden;
+  box-shadow: 
+    -1px 1px 0px #d4d4d4,
+    -2px 2px 0px #bbbbbb,
+    -3px 3px 0px #999999,
+    -4px 4px 0px #777777,
+    -5px 5px 0px #555555,
+    -6px 6px 0px #333333,
+    -10px 15px 30px rgba(0, 0, 0, 0.45);
+}
+
+.logo-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-face.back {
+  transform: rotateY(180deg);
+}
+
+@keyframes rotate3DReal {
+  0% { transform: translateY(0) rotateY(0deg) rotateX(4deg); }
+  25% { transform: translateY(-10px) rotateY(180deg) rotateX(-4deg); }
+  50% { transform: translateY(0) rotateY(360deg) rotateX(4deg); }
+  75% { transform: translateY(-10px) rotateY(180deg) rotateX(-4deg); }
+  100% { transform: translateY(0) rotateY(0deg) rotateX(4deg); }
+}
+
+/* BANNER PUBLICITARIO EN ESTILO TARJETA 3D */
+.promo-banner {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  background: #ffffff;
+  aspect-ratio: 16 / 7;
+  max-height: 140px;
+  margin-top: auto;
+  position: relative;
+  box-shadow: 
+    -1px 1px 0px #d4d4d4,
+    -2px 2px 0px #bbbbbb,
+    -3px 3px 0px #999999,
+    -4px 4px 0px #777777,
+    -5px 5px 0px #555555,
+    -8px 12px 25px rgba(0, 0, 0, 0.35);
+  transform: perspective(1000px) rotateX(2deg);
+}
+
+.promo-banner a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.promo-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.promo-banner img.transitioning {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+/* REPRODUCTOR FLOTANTE INFERIOR */
+.bottom-player-card {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom) + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  max-width: 400px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.play-square-btn {
+  width: 44px;
+  height: 44px;
+  background: #000000;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.player-text-details {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.player-status {
+  font-size: 11px;
+  color: #666666;
+  font-weight: 500;
+}
+
+.player-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ECUALIZADOR (ONDA ROSADA) */
+.eq-container {
+  width: 100%;
+  height: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2px;
+}
+
+.eq-bar-item {
+  flex: 1;
+  height: 3px;
+  background: #ff007f;
+  border-radius: 2px;
+  transition: height 0.08s ease;
+}
+
+/* --- MENÚ DESPLEGABLE HAMBURGUESA --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100%;
+  background: #111116;
+  color: #ffffff;
+  z-index: 1001;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.side-menu.active {
+  left: 0;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+}
+
+.menu-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffd000;
+}
+
+.close-btn {
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.menu-section-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888899;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* REDES SOCIALES */
+.social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.social-item:active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.social-item i {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.social-item.whatsapp i { color: #25D366; }
+.social-item.instagram i { color: #E1306C; }
+.social-item.facebook i { color: #1877F2; }
+.social-item.tiktok i { color: #00f2fe; }
+.social-item.youtube i { color: #FF0000; }
+</style>
+</head>
+
+<body>
+
+<!-- OVERLAY Y MENÚ LATERAL DESPLEGABLE -->
+<div class="overlay" id="menuOverlay"></div>
+
+<div class="side-menu" id="sideMenu">
+  <div class="menu-header">
+    <h2>MENÚ PRINCIPAL</h2>
+    <i class="fa-solid fa-xmark close-btn" id="closeMenuBtn"></i>
+  </div>
+
+  <!-- SECCIÓN REDES SOCIALES -->
+  <div>
+    <div class="menu-section-title">Redes Sociales</div>
+    <div class="social-list">
+      <a href="https://wa.me/" target="_blank" class="social-item whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp Studio</span>
+      </a>
+      <a href="https://instagram.com" target="_blank" class="social-item instagram">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+      <a href="https://facebook.com" target="_blank" class="social-item facebook">
+        <i class="fa-brands fa-facebook"></i>
+        <span>Facebook</span>
+      </a>
+      <a href="https://tiktok.com" target="_blank" class="social-item tiktok">
+        <i class="fa-brands fa-tiktok"></i>
+        <span>TikTok</span>
+      </a>
+      <a href="https://youtube.com" target="_blank" class="social-item youtube">
+        <i class="fa-brands fa-youtube"></i>
+        <span>YouTube</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-wrapper">
+
+  <!-- CABECERA -->
+  <div class="top-bar">
+    <i class="fa-solid fa-bars" id="openMenuBtn"></i>
+    <h1>RADIO PARTY VALENCIA</h1>
+  </div>
+
+  <!-- EN VIVO -->
+  <div class="live-tag">EN VIVO</div>
+
+  <!-- STAGE DEL LOGO CON EFECTO 3D Y GROSOR -->
+  <div class="logo-stage">
+    <div class="pulse-wave" id="wave1"></div>
+    <div class="pulse-wave" id="wave2"></div>
+    <div class="pulse-wave" id="wave3"></div>
+
+    <div class="logo-3d-box" id="logo3d">
+      <div class="logo-face front">
+        <img src="https://i.ibb.co/LhDPnt7b/N.png" alt="Radio Party Valencia">
+      </div>
+      <div class="logo-face back">
+        <img src="https://i.ibb.co/LhDPnt7b/N.png" alt="Radio Party Valencia">
+      </div>
+    </div>
+  </div>
+
+  <!-- BANNER PUBLICITARIO EN TARJETA 3D -->
+  <div class="promo-banner">
+    <a id="bannerLink" href="#" target="_blank">
+      <img id="bannerImg" src="https://i.ibb.co/b5DdVL8X/CARRUSEL-2.png" alt="Publicidad">
+    </a>
+  </div>
+
+  <!-- REPRODUCTOR FLOTANTE INFERIOR -->
+  <div class="bottom-player-card">
+    <div class="player-row">
+      <button class="play-square-btn" id="playBtn">
+        <i class="fa-solid fa-play" id="playIcon"></i>
+      </button>
+      <div class="player-text-details">
+        <span class="player-status">En Vivo</span>
+        <span class="player-name">RADIO PARTY VALENCIA</span>
+      </div>
+    </div>
+    
+    <div class="eq-container" id="eqContainer"></div>
+  </div>
+
+</div>
+
+<script>
+/* CONTROL DEL MENÚ HAMBURGUESA */
+const openMenuBtn = document.getElementById("openMenuBtn");
+const closeMenuBtn = document.getElementById("closeMenuBtn");
+const menuOverlay = document.getElementById("menuOverlay");
+const sideMenu = document.getElementById("sideMenu");
+
+function openMenu() {
+  sideMenu.classList.add("active");
+  menuOverlay.classList.add("active");
+}
+
+function closeMenu() {
+  sideMenu.classList.remove("active");
+  menuOverlay.classList.remove("active");
+}
+
+openMenuBtn.onclick = openMenu;
+closeMenuBtn.onclick = closeMenu;
+menuOverlay.onclick = closeMenu;
+
+/* REPRODUCTOR DE AUDIO Y PROCESAMIENTO EN TIEMPO REAL */
+const audioURL = "https://miestacion.turadioonline.com.ar:8286/stream";
+const audio = new Audio(audioURL);
+audio.crossOrigin = "anonymous";
+
+let audioContext, analyser, dataArray;
+let playing = false;
+
+const playBtn = document.getElementById("playBtn");
+const playIcon = document.getElementById("playIcon");
+const eqContainer = document.getElementById("eqContainer");
+
+const wave1 = document.getElementById("wave1");
+const wave2 = document.getElementById("wave2");
+const wave3 = document.getElementById("wave3");
+
+const BARS_COUNT = 32;
+const eqBars = [];
+
+for (let i = 0; i < BARS_COUNT; i++) {
+  const bar = document.createElement("div");
+  bar.classList.add("eq-bar-item");
+  eqContainer.appendChild(bar);
+  eqBars.push(bar);
+}
+
+function initAudioAnalyser() {
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 128;
+    const bufferLength = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(bufferLength);
+
+    const source = audioContext.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
+  }
+}
+
+playBtn.onclick = () => {
+  initAudioAnalyser();
+  if (audioContext.state === 'suspended') {
+    audioContext.resume();
+  }
+
+  if (!playing) {
+    audio.play();
+    playIcon.className = "fa-solid fa-pause";
+    playing = true;
+  } else {
+    audio.pause();
+    playIcon.className = "fa-solid fa-play";
+    playing = false;
+  }
+};
+
+function animateEqAndWaves() {
+  if (playing && analyser) {
+    analyser.getByteFrequencyData(dataArray);
+
+    eqBars.forEach((bar, index) => {
+      const val = dataArray[index % dataArray.length] || 0;
+      const heightPercent = Math.max(15, (val / 255) * 100);
+      bar.style.height = `${heightPercent}%`;
+    });
+
+    const bassVal = (dataArray[1] + dataArray[2] + dataArray[3]) / 3;
+    const intensity = bassVal / 255;
+
+    if (intensity > 0.35) {
+      wave1.style.transform = `scale(${1 + intensity * 0.25})`;
+      wave1.style.opacity = intensity;
+
+      wave2.style.transform = `scale(${1 + intensity * 0.45})`;
+      wave2.style.opacity = intensity * 0.7;
+
+      wave3.style.transform = `scale(${1 + intensity * 0.65})`;
+      wave3.style.opacity = intensity * 0.4;
+    } else {
+      wave1.style.opacity = 0;
+      wave2.style.opacity = 0;
+      wave3.style.opacity = 0;
+    }
+
+  } else {
+    eqBars.forEach((bar) => {
+      bar.style.height = "15%";
+    });
+    wave1.style.opacity = 0;
+    wave2.style.opacity = 0;
+    wave3.style.opacity = 0;
+  }
+  requestAnimationFrame(animateEqAndWaves);
+}
+
+animateEqAndWaves();
+
+/* CARRUSEL DE BANNERS */
+const banners = [
+  { "image": "https://i.ibb.co/b5DdVL8X/CARRUSEL-2.png", "url": "#" },
+  { "image": "https://i.ibb.co/6crtrpGt/carrusel-1.png", "url": "#" },
+  { "image": "https://i.ibb.co/9HkDgTsg/CARRUSEL-3.webp", "url": "#" },
+  { "image": "https://i.ibb.co/TqMxfZTg/CARRUSEL-4.png", "url": "#" },
+  { "image": "https://i.ibb.co/p6qTYy5m/CARRUSEL-2-K.png", "url": "#" }
+];
+
+let currentBanner = 0;
+const bannerImg = document.getElementById("bannerImg");
+const bannerLink = document.getElementById("bannerLink");
+
+function rotateBanners() {
+  bannerImg.classList.add("transitioning");
+  setTimeout(() => {
+    currentBanner = (currentBanner + 1) % banners.length;
+    bannerImg.src = banners[currentBanner].image;
+    bannerLink.href = banners[currentBanner].url;
+    bannerImg.classList.remove("transitioning");
+  }, 600);
+}
+
+setInterval(rotateBanners, 7000);
+</script>
+</body>
+</html>
