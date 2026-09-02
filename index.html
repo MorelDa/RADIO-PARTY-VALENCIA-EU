@@ -43,7 +43,6 @@ html, body {
   overflow-x: hidden;
 }
 
-/* CONTENEDOR MÓVIL */
 .mobile-wrapper {
   width: 100%;
   max-width: 430px;
@@ -61,7 +60,6 @@ html, body {
   perspective: 1200px;
 }
 
-/* BARRA SUPERIOR */
 .top-bar {
   width: 100%;
   display: flex;
@@ -85,7 +83,6 @@ html, body {
   text-overflow: ellipsis;
 }
 
-/* ETIQUETA EN VIVO REDONDEADA */
 .live-tag {
   background-color: #e50914;
   color: #ffffff;
@@ -98,7 +95,6 @@ html, body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* STAGE DEL LOGO CON ONDAS EXPANSIVAS */
 .logo-stage {
   position: relative;
   width: min(65vw, 230px);
@@ -111,7 +107,6 @@ html, body {
   perspective: 1000px;
 }
 
-/* ONDAS BLANCAS FINAS EXPANSIVAS */
 .pulse-wave {
   position: absolute;
   width: 100%;
@@ -125,7 +120,6 @@ html, body {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
-/* ESTRUCTURA 3D REAL DEL LOGO CON CAPA GRUESA (GROSOR 3D) */
 .logo-3d-box {
   width: 100%;
   height: 100%;
@@ -171,7 +165,6 @@ html, body {
   100% { transform: translateY(0) rotateY(0deg) rotateX(4deg); }
 }
 
-/* BANNER PUBLICITARIO EN ESTILO TARJETA 3D */
 .promo-banner {
   width: 100%;
   border-radius: 20px;
@@ -212,7 +205,6 @@ html, body {
   transform: scale(0.97);
 }
 
-/* REPRODUCTOR FLOTANTE INFERIOR */
 .bottom-player-card {
   position: fixed;
   bottom: calc(env(safe-area-inset-bottom) + 10px);
@@ -273,7 +265,6 @@ html, body {
   text-overflow: ellipsis;
 }
 
-/* ECUALIZADOR (ONDA ROSADA) */
 .eq-container {
   width: 100%;
   height: 12px;
@@ -291,7 +282,6 @@ html, body {
   transition: height 0.08s ease;
 }
 
-/* --- MENÚ DESPLEGABLE HAMBURGUESA --- */
 .overlay {
   position: fixed;
   top: 0;
@@ -362,7 +352,6 @@ html, body {
   margin-bottom: 8px;
 }
 
-/* REDES SOCIALES */
 .social-list {
   display: flex;
   flex-direction: column;
@@ -403,7 +392,6 @@ html, body {
 
 <body>
 
-<!-- OVERLAY Y MENÚ LATERAL DESPLEGABLE -->
 <div class="overlay" id="menuOverlay"></div>
 
 <div class="side-menu" id="sideMenu">
@@ -412,7 +400,6 @@ html, body {
     <i class="fa-solid fa-xmark close-btn" id="closeMenuBtn"></i>
   </div>
 
-  <!-- SECCIÓN REDES SOCIALES -->
   <div>
     <div class="menu-section-title">Redes Sociales</div>
     <div class="social-list">
@@ -442,16 +429,13 @@ html, body {
 
 <div class="mobile-wrapper">
 
-  <!-- CABECERA -->
   <div class="top-bar">
     <i class="fa-solid fa-bars" id="openMenuBtn"></i>
     <h1>RADIO PARTY VALENCIA</h1>
   </div>
 
-  <!-- EN VIVO -->
   <div class="live-tag">EN VIVO</div>
 
-  <!-- STAGE DEL LOGO CON EFECTO 3D Y GROSOR -->
   <div class="logo-stage">
     <div class="pulse-wave" id="wave1"></div>
     <div class="pulse-wave" id="wave2"></div>
@@ -467,14 +451,12 @@ html, body {
     </div>
   </div>
 
-  <!-- BANNER PUBLICITARIO EN TARJETA 3D -->
   <div class="promo-banner">
     <a id="bannerLink" href="#" target="_blank">
       <img id="bannerImg" src="https://i.ibb.co/b5DdVL8X/CARRUSEL-2.png" alt="Publicidad">
     </a>
   </div>
 
-  <!-- REPRODUCTOR FLOTANTE INFERIOR -->
   <div class="bottom-player-card">
     <div class="player-row">
       <button class="play-square-btn" id="playBtn">
@@ -492,7 +474,6 @@ html, body {
 </div>
 
 <script>
-/* CONTROL DEL MENÚ HAMBURGUESA */
 const openMenuBtn = document.getElementById("openMenuBtn");
 const closeMenuBtn = document.getElementById("closeMenuBtn");
 const menuOverlay = document.getElementById("menuOverlay");
@@ -513,7 +494,7 @@ closeMenuBtn.onclick = closeMenu;
 menuOverlay.onclick = closeMenu;
 
 /* REPRODUCTOR DE AUDIO Y PROCESAMIENTO EN TIEMPO REAL */
-const audioURL = "https://miestacion.turadioonline.com.ar:8286/stream";
+const audioURL = "https://quarterly-linda-bailey-interface.trycloudflare.com/stream";
 const audio = new Audio(audioURL);
 audio.crossOrigin = "anonymous";
 
